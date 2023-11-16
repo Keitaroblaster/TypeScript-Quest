@@ -8,11 +8,19 @@ You will have to find the following information and test them as you go along in
   the different primitive data types in TypeScript are : - biggint - boolean - null - number - string - symbol - undefined
 
 - How to type an Array?
-  there are 2 ways to declare an array: - we can use square brackets which is similar to how we would declare arrays in Javascript
-  Example: `let car: string[] = ["Mercedes", "BMW", "Ferrari", "Lamborghini"];`
+  there are 2 ways to declare an array:
 
-      - we can use a generic array type like Array<elementType>
-        Example: `let country: Array<string> = ["France", "Spain", "Italia", "England"];`
+  - we can use square brackets which is similar to how we would declare arrays in Javascript
+
+  ```ts
+  let car: string[] = ["Mercedes", "BMW", "Ferrari", "Lamborghini"];
+  ```
+
+  - we can use a generic array type like Array<elementType>
+
+  ```ts
+  let country: Array<string> = ["France", "Spain", "Italia", "England"];
+  ```
 
 - What is the `any` type?
   The "any" type in TypeScript is a generic type used when a variable's type is unknown or hasn't yet been defined.
@@ -21,33 +29,35 @@ You will have to find the following information and test them as you go along in
 
   The any type should only be used when you don’t want to write a long type just to convince TypeScript that a piece of code is correct.
 
-      Example without "any":
-      ```ts
-      const config: {
-      title: string;
-      files: string[];
-      options: { preset: string };
-      } = {
-      title: "Some config",
-      files: ["file1.js", "file2.js"],
-      options: {
-      preset: "node-ts",
-      },
-      };
-      console.log(config)
-      ```
+  Example without "any":
 
-      Example with "any":
-      ```ts
-      const config: any = {
-      title: "Some config",
-      files: ["file1.js", "file2.js"],
-      options: {
+  ```ts
+  const config: {
+    title: string;
+    files: string[];
+    options: { preset: string };
+  } = {
+    title: "Some config",
+    files: ["file1.js", "file2.js"],
+    options: {
       preset: "node-ts",
-      },
-      };
-      console.log(config)
-      ```
+    },
+  };
+  console.log(config);
+  ```
+
+  Example with "any":
+
+  ```ts
+  const config: any = {
+    title: "Some config",
+    files: ["file1.js", "file2.js"],
+    options: {
+      preset: "node-ts",
+    },
+  };
+  console.log(config);
+  ```
 
 - How to type the return of a function as well as the type of its parameters?
   The basic syntax for defining the return type of a function in TypeScript is:
