@@ -5,24 +5,27 @@ You will have to find the following information and test them as you go along in
 ## Level 1
 
 - Which are the different primitive data types in TypeScript?
+
   the different primitive data types in TypeScript are : - biggint - boolean - null - number - string - symbol - undefined
 
 - How to type an Array?
+
   there are 2 ways to declare an array:
 
-  - we can use square brackets which is similar to how we would declare arrays in Javascript
+  - we can use square brackets which is similar to how we would declare arrays in Javascript:
 
   ```ts
   let car: string[] = ["Mercedes", "BMW", "Ferrari", "Lamborghini"];
   ```
 
-  - we can use a generic array type like Array<elementType>
+  - we can use a generic array type like Array<elementType>:
 
   ```ts
   let country: Array<string> = ["France", "Spain", "Italia", "England"];
   ```
 
 - What is the `any` type?
+
   The "any" type in TypeScript is a generic type used when a variable's type is unknown or hasn't yet been defined.
 
   The any type is useful when converting existing JavaScript to TypeScript as it allows one to gradually opt-in and opt-out of type checking during compilation.
@@ -60,6 +63,7 @@ You will have to find the following information and test them as you go along in
   ```
 
 - How to type the return of a function as well as the type of its parameters?
+
   The basic syntax for defining the return type of a function in TypeScript is:
 
   ```ts
@@ -74,12 +78,111 @@ You will have to find the following information and test them as you go along in
 ## Level 2
 
 - What is a class?
+
+  The class in TypeScript is compiled to plain JavaScript functions by the TypeScript compiler to work across platforms and browsers.
+  A class can include the following:
+
+  > Constructor
+  > Properties
+  > Methods
+
+  ```ts
+  class Car {}
+  ```
+
 - What is a class constructor?
+
+  The constructor is a special type of method which is called when creating an object. In TypeScript, the constructor method is always defined with the name "constructor".
+
+  ```ts
+  class Car {
+    carNumberSeries: number;
+    carModel: string;
+    carElectric: boolean;
+
+    constructor(
+      carnumbereries: number,
+      carmodel: string,
+      carelectric: boolean
+    ) {
+      this.carNumberSeries = carnumberseries;
+      this.carModel = carmodel;
+      this.carElectric = carelectric;
+    }
+  }
+  ```
+
 - What is a class instance?
+
+  A class instance is created with "new" keyword followed by the class name. This instruction calls the constructor method which constructs the object and places it in memory. This object inherits the properties and methods of the class.
+
+  ```ts
+  class Person {
+    PersonAge: number;
+    PersonName: string;
+
+    constructeur(age: number, name: string) {
+      this.PersonAge = age;
+      this.PersonName = name;
+    }
+  }
+  let personId = new Person(20, "Homer");
+  ```
+
 - How to check that a class is of a certain instance?
+  The "instanceof" operator is used to check if an object is one of a specified class. This operator returns true or false.
+
+  ```ts
+  objectVariable instanceof ClassName;
+  personId instanceof Person; // compile true
+  personId instanceof Car; // compile false
+  ```
+
 - What is `this` in a class?
+
+  The "this" keyword in a class usually refers to the instance of the class. In TypeScript, this keyword refers to the global object if it’s not used inside any class or method. Even if we use this keyword inside the function, it refers to the global means window object. Also, we can use this keyword inside the callback function of the class method.
+
+  ```ts
+  class Person {
+    PersonAge: number;
+    PersonName: string;
+
+    constructeur(age: number, name: string) {
+      this.PersonAge = age;
+      this.PersonName = name;
+    }
+  }
+  ```
+
 - What is a class method?
+
+  A class method is function inside class. Creating class methods in TypeScript can be done by writing the name of the method we need to define followed by the "()" parameters symbol with any parameters and their types if any, followed by the ':' symbol and then the type of the value that should be returned by the method.
+
+  ```ts
+  class Person {
+    PersonName: string;
+    PersonAge: number;
+
+    constructor(name: string, age: number) {
+      this.PersonName = name;
+      this.PersonAge = age;
+    }
+
+    welcomeHome(): string {
+      return "Hello, good morning ${this.name}";
+    }
+  }
+  let personId = new Person("Donnie Yen", 56);
+  let hello = personId.welcomeHome();
+
+  console.log(hello); // output: Hello, good morning Donnie Yen
+  ```
+
 - What is the visibility of properties?
+
+  In Typescript, by default, the visibility of all properties or methods in Typescript classes is “public“. A method with which is public can be accessed from anywhere, it has no restrictions.
+  There are three types of member visibilities: "public", "private" and "protected".
+
 - What is the difference between `public`, `private` and `protected`?
 
 **🎉🎉🎉Update the Github Project board🎉🎉🎉**
