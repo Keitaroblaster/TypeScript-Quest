@@ -6,7 +6,15 @@ You will have to find the following information and test them as you go along in
 
 - Which are the different primitive data types in TypeScript?
 
-  the different primitive data types in TypeScript are : - biggint - boolean - null - number - string - symbol - undefined
+  the different primitive data types in TypeScript are :
+
+  - biggint
+  - boolean
+  - null
+  - number
+  - string
+  - symbol
+  - undefined
 
 - How to type an Array?
 
@@ -26,13 +34,13 @@ You will have to find the following information and test them as you go along in
 
 - What is the `any` type?
 
-  The "any" type in TypeScript is a generic type used when a variable's type is unknown or hasn't yet been defined.
+  The `any` type in TypeScript is a generic type used when a variable's type is unknown or hasn't yet been defined.
 
   The any type is useful when converting existing JavaScript to TypeScript as it allows one to gradually opt-in and opt-out of type checking during compilation.
 
   The any type should only be used when you don’t want to write a long type just to convince TypeScript that a piece of code is correct.
 
-  Example without "any":
+  Example without `any`:
 
   ```ts
   const config: {
@@ -49,7 +57,7 @@ You will have to find the following information and test them as you go along in
   console.log(config);
   ```
 
-  Example with "any":
+  Example with `any`:
 
   ```ts
   const config: any = {
@@ -82,9 +90,9 @@ You will have to find the following information and test them as you go along in
   The class in TypeScript is compiled to plain JavaScript functions by the TypeScript compiler to work across platforms and browsers.
   A class can include the following:
 
-  > Constructor
-  > Properties
-  > Methods
+  - Constructor
+  - Properties
+  - Methods
 
   ```ts
   class Car {}
@@ -114,7 +122,7 @@ You will have to find the following information and test them as you go along in
 
 - What is a class instance?
 
-  A class instance is created with "new" keyword followed by the class name. This instruction calls the constructor method which constructs the object and places it in memory. This object inherits the properties and methods of the class.
+  A class instance is created with `new` keyword followed by the class name. This instruction calls the constructor method which constructs the object and places it in memory. This object inherits the properties and methods of the class.
 
   ```ts
   class Person {
@@ -131,7 +139,7 @@ You will have to find the following information and test them as you go along in
 
 - How to check that a class is of a certain instance?
 
-  The "instanceof" operator is used to check if an object is one of a specified class. This operator returns true or false.
+  The `instanceof` operator is used to check if an object is one of a specified class. This operator returns true or false.
 
   ```ts
   objectVariable instanceof ClassName;
@@ -141,7 +149,7 @@ You will have to find the following information and test them as you go along in
 
 - What is `this` in a class?
 
-  The "this" keyword in a class usually refers to the instance of the class. In TypeScript, this keyword refers to the global object if it’s not used inside any class or method. Even if we use this keyword inside the function, it refers to the global means window object. Also, we can use this keyword inside the callback function of the class method.
+  The `this` keyword in a class usually refers to the instance of the class. In TypeScript, this keyword refers to the global object if it’s not used inside any class or method. Even if we use this keyword inside the function, it refers to the global means window object. Also, we can use this keyword inside the callback function of the class method.
 
   ```ts
   class Person {
@@ -157,7 +165,7 @@ You will have to find the following information and test them as you go along in
 
 - What is a class method?
 
-  A class method is function inside class. Creating class methods in TypeScript can be done by writing the name of the method we need to define followed by the "()" parameters symbol with any parameters and their types if any, followed by the ':' symbol and then the type of the value that should be returned by the method.
+  A class method is function inside class. Creating class methods in TypeScript can be done by writing the name of the method we need to define followed by the `()` parameters symbol with any parameters and their types if any, followed by the `:` symbol and then the type of the value that should be returned by the method.
 
   ```ts
   class Person {
@@ -181,11 +189,11 @@ You will have to find the following information and test them as you go along in
 
 - What is the visibility of properties?
 
-  The visibility of properties allows to know the differents possibility of access to the method or properties. There are 3 types of member visibilities : "public", "private" and "protected".
+  The visibility of properties allows to know the differents possibility of access to the method or properties. There are 3 types of member visibilities : `public`, `private` and `protected`.
 
 - What is the difference between `public`, `private` and `protected`?
 
-  - "Public" means functions and properties can be accessed from anywhere. We use the "Public"
+  - `Public` means functions and properties can be accessed from anywhere. We use the `Public`
     keyword to represent that the function has public visibility but by default all properties and methods are public and we don't need to specify that.
 
   ```ts
@@ -207,7 +215,7 @@ You will have to find the following information and test them as you go along in
   personId.personDetail(); // Output: My name is Babou and i'm 20 years old
   ```
 
-  -"Protected" means functions and properties are accessible only in their class or their subclasses.
+  - `Protected` means functions and properties are accessible only in their class or their subclasses.
 
   ```ts
   class Student {
@@ -245,8 +253,8 @@ You will have to find the following information and test them as you go along in
   obj1.student_details(); // Error: Property 'student_details' is protected and only accessible within class 'Student' and its subclasses.
   ```
 
--"Private" is similar to protected, but it also prevents subclasses from accessing the member.
-A derived class can’t improve its visibility because private members aren’t visible to derived classes.
+- `Private` is similar to protected, but it also prevents subclasses from accessing the member. A
+  derived class can’t improve its visibility because private members aren’t visible to derived classes.
 
 ```ts
 class Student {
@@ -293,12 +301,126 @@ obj1.student_details(); // Error: Property 'student_details' is private and only
 ## Level 3
 
 - How to split our program into different files? (e.g. a class in a file that I import into another)
+
+  In Typescript, we use the `import` keyword to import classes, functions and other values from another module.
+  We can also import the entire module and access the `exports` using the module's name.
+
 - What is the `export` keyword?
+
+  In typescript we can export anything (class, function, file, interface, type etc..) using the `export` keyword.
+
+```ts
+export function function_name() {}
+```
+
 - What is the `import` keyword?
+
+```ts
+import { MyClass } from "./myModule";
+```
+
+Global Example:
+
+- Module1.ts
+
+```ts
+export function BlaBla() {
+  return " Taratata";
+}
+```
+
+- Module2.ts
+
+```ts
+import Blabla from "./Module1";
+let message = Blabla();
+
+console.log(message); // Output: Taratata
+```
+
 - What's inheritance?
+
+  Inheritance in TypeScript it's when a class reuse the properties and methods of another class.
+  The class which inherits properties and methods is called the `child-class` and the class whose properties and methods are inherits is known as the `parent-class`.
+  Inheritance allow to reuse the functionnality of an existing class without rewriting it.
+
 - How to call the constructor of a parent class?
+
+  To call the constructor of a parent-class we use to `super()` in the constructor of the chil-class.
+
+  ```ts
+  class Parent {
+    ParentProperties1: number;
+    ParentProperties2: string;
+
+    constructor(properties1: number, properties2: string){
+      this.ParentProperties1 = properties1;
+      this.ParentProperties2 = properties2;
+    }
+  }
+
+  class Child extends Parent {
+    ParentProperties3: string;
+    ParentProperties4: string;
+
+    constructor(properties3: number, properties4: string)
+    this.properties3;
+    this.properties4;
+    super(properties1, properties2 );
+  }
+  ```
+
 - How to call a method of a parent class?
+
+  To call a method of a parent-class we use to `super.method()` in the chil-class.
+
+```ts
+class Parent {
+  function1() {}
+}
+
+class Child extends Parent {
+  function2() {
+    super.function1();
+  }
+}
+```
+
 - What is polymorphism?
+
+  Polymorphism is the ability to create a class that has more than one form. Or in other words, classes have the same methods but different implementations.
+
+```ts
+class Animal {
+  public AnimalName: string;
+
+  constructor(name: string) {
+    this.AnimalName = name;
+  }
+
+  public makeSound(): void {
+    process.stdout.write("generic animal sound\n");
+  }
+}
+
+export class Dog extends Animal {
+  public makeSound(): void {
+    process.stdout.write("wuff wuff\n");
+  }
+}
+
+class Cat extends Animal {
+  public makeSound(): void {
+    process.stdout.write("meow meow\n");
+  }
+}
+
+const pocky: Cat = new Cat("Pocky");
+pocky.makeSound(); // Output: meow meow
+
+const toshii: Dog = new Dog("Pocky");
+toshii.makeSound(); // Output wuff wuff
+```
 
 **🎉🎉🎉Update the Github Project board🎉🎉🎉**
 
