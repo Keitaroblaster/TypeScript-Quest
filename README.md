@@ -130,6 +130,7 @@ You will have to find the following information and test them as you go along in
   ```
 
 - How to check that a class is of a certain instance?
+
   The "instanceof" operator is used to check if an object is one of a specified class. This operator returns true or false.
 
   ```ts
@@ -180,10 +181,112 @@ You will have to find the following information and test them as you go along in
 
 - What is the visibility of properties?
 
-  In Typescript, by default, the visibility of all properties or methods in Typescript classes is “public“. A method with which is public can be accessed from anywhere, it has no restrictions.
-  There are three types of member visibilities: "public", "private" and "protected".
+  The visibility of properties allows to know the differents possibility of access to the method or properties. There are 3 types of member visibilities : "public", "private" and "protected".
 
 - What is the difference between `public`, `private` and `protected`?
+
+  - "Public" means functions and properties can be accessed from anywhere. We use the "Public"
+    keyword to represent that the function has public visibility but by default all properties and methods are public and we don't need to specify that.
+
+  ```ts
+  class Person {
+    PersonName: string;
+    PersonAge: number;
+
+    constructeur(name: string, age: number) {
+      this.PersonName = name;
+      this.PersonAge = age;
+    }
+    public personDetail() {
+      console.log(
+        "My name is " + this.name + " and i'm " + this.age + " years old"
+      );
+    }
+  }
+  let personId = new Person("Babou", 20);
+  personId.personDetail(); // Output: My name is Babou and i'm 20 years old
+  ```
+
+  -"Protected" means functions and properties are accessible only in their class or their subclasses.
+
+  ```ts
+  class Student {
+    protected name: string;
+    id: number;
+    constructor(name: string, id: number) {
+      this.name = name;
+      this.id = id;
+    }
+    protected student_details() {
+      console.log(
+        "my name is : " +
+          this.name +
+          " my roll no is : " +
+          `${this.id.toString()}`
+      );
+    }
+    student_name() {
+      console.log("My name is : " + self.name);
+    }
+  }
+  class classRepresentative extends Student {
+    detail() {
+      console.log("I am the class representative, my name is :" + this.name);
+    }
+  }
+
+  let obj = new Student("rahul", 367236);
+  let obj1 = new classRepresentative("samuel", 287636);
+
+  obj.name; // Error: Property 'name' is protected and only accessible within class 'Student' and its subclasses.
+  obj.student_name(); // No error
+  obj.student_details(); // Error: Property 'student_details' is protected and only accessible within class 'Student' and its subclasses.
+  obj1.detail(); // No error
+  obj1.student_details(); // Error: Property 'student_details' is protected and only accessible within class 'Student' and its subclasses.
+  ```
+
+-"Private" is similar to protected, but it also prevents subclasses from accessing the member.
+A derived class can’t improve its visibility because private members aren’t visible to derived classes.
+
+```ts
+class Student {
+  private name: string;
+  id: number;
+
+  constructor(name: string, id: number) {
+    this.name = name;
+    this.id = id;
+  }
+
+  private student_details() {
+    console.log(
+      "my name is : " +
+        this.name +
+        " my roll no is : " +
+        `${this.id.toString()}`
+    );
+  }
+
+  student_name() {
+    console.log("My name is : " + self.name);
+  }
+}
+
+class classRepresentative extends Student {
+  detail() {
+    console.log("I am the class representative, my name is :" + this.name);
+  }
+}
+
+let obj = new Student("rahul", 367236);
+let obj1 = new classRepresentative("samuel", 287636);
+
+obj.name; // Error: Property 'name' is private and only accessible within class 'Student'.
+obj.student_name(); // No error
+obj.student_details(); // Error: Property 'student_details' is private and only accessible within class 'Student'.
+obj1.detail(); // No error
+obj1.student_details(); // Error: Property 'student_details' is private and only accessible within class 'Student'.
+```
 
 **🎉🎉🎉Update the Github Project board🎉🎉🎉**
 
@@ -279,3 +382,7 @@ _Edit the `attack` method of `Hero` so that the damage is calculated as follows:
 **_Bonus 2 : User interface_**
 
 _Create a user interface for the application (for example, with a choice of heroes and weapons, and a visual on the damage inflicted)_
+
+```
+
+```
