@@ -1,4 +1,5 @@
 import {Hero} from "./Hero";
+import HeroSword from "./HeroSword";
 import Weapon from "./Weapon";
 
 // Create HeroAxe class that inherit from Hero
@@ -12,6 +13,13 @@ export default class HeroAxe extends Hero{
 
     
     attack(opponent: Hero) {
-        super.attack(opponent); // Call the method attack of the parent class
+        const attacker = this;
+        if(opponent instanceof HeroSword ){
+            opponent.life -= (attacker.power * 2)+ attacker.weapon.damage;
+            console.log(`${attacker.name} attacked ${opponent.name} with ${attacker.weapon.name} and inflicts on him ${attacker.power * 2 + attacker.weapon.damage} damages `);
+            console.log(`The ${opponent.name}'s rest life is: ${opponent.life} and the ${attacker.name}'s rest life is: ${attacker.life} `);
+        }else{
+            super.attack(opponent); // Call the method attack of the parent class
+        }
     }
 }

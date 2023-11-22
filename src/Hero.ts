@@ -1,7 +1,4 @@
 import Weapon from "./Weapon";
-import HeroAxe from "./HeroAxe";
-import HeroSword from "./HeroSword";
-import HeroSpear from "./HeroSpear";
 
 // Create a Hero class
 export class Hero {
@@ -49,21 +46,10 @@ export class Hero {
     attack(opponent: Hero){
         const attacker = this; // constant to stock the value "this" which is the object instance because i'm lost in all these keywords this
 
-        // Bonus attack multiply by 2 if one of these conditions is verified
-        if((attacker instanceof HeroAxe && opponent instanceof HeroSword ) || 
-           (attacker instanceof HeroSword && opponent instanceof HeroSpear) ||
-           (attacker instanceof HeroSpear && opponent instanceof HeroAxe)){
-
-            opponent.heroLife -= (attacker.heroPower * 2)+ attacker.weapon.damage;
-
-            console.log(`${attacker.name} attacked ${opponent.name} with ${attacker.weapon.name} and inflicts on him ${attacker.power * 2 + attacker.weapon.damage} damages `);
-            console.log(`The ${opponent.name}'s rest life is: ${opponent.life} and the ${attacker.name}'s rest life is: ${attacker.life} `);
-        }else{
             opponent.heroLife -= attacker.heroPower + attacker.weapon.damage;
 
             console.log(`${attacker.name} attacked ${opponent.name} with ${attacker.weapon.name} and inflicts on him ${attacker.power + attacker.weapon.damage} damages `);
             console.log(`The ${opponent.name}'s rest life is: ${opponent.life} and the ${attacker.name}'s rest life is: ${attacker.life} `);
-        }
     }
     
 
