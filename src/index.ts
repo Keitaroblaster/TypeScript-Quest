@@ -1,6 +1,6 @@
-import HeroAxe from "./HeroAxe";
-import HeroSword from "./HeroSword";
-import HeroSpear from "./HeroSpear";
+import {HeroAxe} from "./HeroAxe";
+import {HeroSword} from "./HeroSword";
+import {HeroSpear} from "./HeroSpear";
 import { battle } from "./Battle";
 
 let swordHero = new HeroSword ("Link", 10, 100);

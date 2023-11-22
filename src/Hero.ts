@@ -1,4 +1,4 @@
-import Weapon from "./Weapon";
+import {Weapon} from "./Weapon";
 
 // Create a Hero class
 export class Hero {

@@ -1,5 +1,5 @@
 // Create a Weapon class
-export default class Weapon {
+export class Weapon {
 
     // Add property
     private weaponName: string;

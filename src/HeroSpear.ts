@@ -1,9 +1,9 @@
 import {Hero} from "./Hero";
-import HeroAxe from "./HeroAxe";
-import Weapon from "./Weapon";
+import {HeroAxe} from "./HeroAxe";
+import {Weapon} from "./Weapon";
 
 // Create HeroSpear class that inherit from Hero
-export default class HeroSpear extends Hero {
+export class HeroSpear extends Hero {
     
     // Call the constructor of their parent
     constructor(name: string, power: number, life: number){
